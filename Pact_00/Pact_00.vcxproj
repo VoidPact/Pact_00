@@ -120,12 +120,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\glad.c" />
+    <ClCompile Include="..\glad\glad.c" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\glad\glad.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
