@@ -17,7 +17,8 @@ void handleInput(bool &loopCondition)
 
 			switch (event.key.keysym.sym)
 			{
-			case SDLK_w:
+			case SDLK_ESCAPE:
+				loopCondition = false;
 				break;
 
 			default:

@@ -50,3 +50,10 @@ bool initWindow(int width, int height, const char* title, SDL_Window* &window)
 	std::cout << "Initialized openGL window successfully!" << std::endl;
 	return true;
 }
+
+void cleanupWindow(SDL_Window* &window, SDL_GLContext &context)
+{
+	SDL_GL_DeleteContext(context);
+	SDL_DestroyWindow(window);
+	SDL_Quit();
+}

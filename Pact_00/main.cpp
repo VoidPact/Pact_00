@@ -12,7 +12,6 @@ int main()
 {
 	SDL_Window* window;
 	initWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, window);
-	std::cout << "The Meme Machine!" << std::endl;
 
 	bool running = true;
 	while (running) 
@@ -27,6 +26,7 @@ int main()
 		SDL_GL_SwapWindow(window);
 	}
 
+	cleanupWindow;
 	return 0;
 }
 
