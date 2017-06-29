@@ -30,6 +30,9 @@
     <ClCompile Include="..\glad\glad.c">
       <Filter>glad</Filter>
     </ClCompile>
+    <ClCompile Include="Action.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window.h">
@@ -40,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="..\glad\glad.h">
       <Filter>glad</Filter>
+    </ClInclude>
+    <ClInclude Include="action.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

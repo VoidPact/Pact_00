@@ -15,15 +15,8 @@ void handleInput(bool &loopCondition)
 		{
 			std::cout << event.key.keysym.sym << std::endl;
 
-			switch (event.key.keysym.sym)
-			{
-			case SDLK_ESCAPE:
-				loopCondition = false;
-				break;
-
-			default:
-				break;
-			}
+			SDL_Keycode keyPressed = event.key.keysym.sym;
+			
 		}
 
 	}
