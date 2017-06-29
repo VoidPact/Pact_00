@@ -18,7 +18,7 @@ int main()
 	//Makes screen blue when press w :).
 	Action blueBalls([]() {glClearColor(0.0, 0.0, 0.5, 0.0); });
 	blueBalls.addTrigger(std::vector<SDL_Keycode>{SDLK_w});
-	blueBalls.addTrigger(std::vector<SDL_Keycode>{SDLK_LSHIFT, SDLK_SPACE});
+
 
 	//Makes screen red when press a :).
 	Action redBalls([]() {glClearColor(0.5, 0.0, 0.0, 0.0); });
