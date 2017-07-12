@@ -2,5 +2,7 @@
 
 #include <iostream>
 #include <SDL2\SDL.h>
+#include <vector>
+#include "action.h"
 
-void handleInput(bool &loopCondition);
+vector<vector<SDL_Keycode>> updateInput();
