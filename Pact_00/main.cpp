@@ -1,10 +1,9 @@
 #include <iostream> // input output, has all sorts of shit - Emil, also has strings.
-#include "window.h"
+#include "Window.h"
 #include "input.h"
 #include "Action.h"
-#include <algorithm>
 
-#undef main
+#undef main // For some reason this needs to be done for SDL to work.
 
 const int WINDOW_WIDTH = 1200;
 const int WINDOW_HEIGHT = 900;
@@ -13,10 +12,8 @@ const char* WINDOW_TITLE = "Pact_00";
 
 int main()
 {
-	SDL_Window* window;
-	initWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, window);
-
-
+	Window window(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE);
+	
 	// TESTING
 	//Makes screen blue when press w :).
 	Action blueBalls([]() 
@@ -64,12 +61,10 @@ int main()
 		processInput(input, actions);
 		
 
-		
-		glClear(GL_COLOR_BUFFER_BIT);
-		SDL_GL_SwapWindow(window);
+		window.clear();
 	}
 
-	cleanupWindow;
+	
 	return 0;
 }
 

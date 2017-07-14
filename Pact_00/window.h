@@ -4,6 +4,31 @@
 #include <SDL2\SDL.h>
 #include "glad\glad.h"
 
-bool initWindow(int width, int height, const char* title, SDL_Window* &window);
+class Window
+{
+public:
+	// Constructors.
+	Window(int width, int height, const char* title);
 
-void cleanupWindow(SDL_Window* &window, SDL_GLContext &context);
+	// Destructors.
+	~Window();
+
+	// Functions. 
+	void clear();
+
+private:
+	// Fields.
+	int height;
+	int width;
+	const char* title;
+	SDL_Window* glWindow;
+	SDL_GLContext glContext;
+
+	// Functions.
+	bool init();
+	void destroy();
+
+};
+
+
+

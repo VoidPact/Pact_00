@@ -1,6 +1,6 @@
 #include "window.h"
 
-bool initWindow(int width, int height, const char* title, SDL_Window* &window)
+bool Window::init()
 {
 	// Initialize SDL's video subsystem. Whatever that is.
 	if (SDL_INIT_VIDEO < 0)
@@ -10,7 +10,7 @@ bool initWindow(int width, int height, const char* title, SDL_Window* &window)
 	}
 
 	// Create window centered at the screen with function argument resolution and title.
-	window = SDL_CreateWindow(
+	glWindow = SDL_CreateWindow(
 		title,
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
@@ -18,14 +18,14 @@ bool initWindow(int width, int height, const char* title, SDL_Window* &window)
 		height,
 		SDL_WINDOW_OPENGL);
 
-	if (!window)
+	if (!glWindow)
 	{
 		std::cout << "Could not create window" << std::endl;
 		return false;
 	}
 
 	// Create openGL context and attach it to mainWindow
-	SDL_GLContext context = SDL_GL_CreateContext(window);
+	SDL_GLContext glContext = SDL_GL_CreateContext(glWindow);
 
 	// Tell SDL that we use the OpenGL Core profile.
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
@@ -51,9 +51,29 @@ bool initWindow(int width, int height, const char* title, SDL_Window* &window)
 	return true;
 }
 
-void cleanupWindow(SDL_Window* &window, SDL_GLContext &context)
+void Window::destroy()
 {
-	SDL_GL_DeleteContext(context);
-	SDL_DestroyWindow(window);
+	SDL_GL_DeleteContext(glContext);
+	SDL_DestroyWindow(glWindow);
 	SDL_Quit();
+}
+
+Window::Window(int width, int height, const char* title)
+{
+	this->height = height;
+	this->width = width;
+	this->title = title;
+
+	this->init();
+}
+
+Window::~Window()
+{
+	this->destroy();
+}
+
+void Window::clear()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	SDL_GL_SwapWindow(glWindow);
 }
