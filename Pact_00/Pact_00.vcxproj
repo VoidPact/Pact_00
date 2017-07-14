@@ -128,7 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\glad\glad.h" />
-    <ClInclude Include="action.h" />
+    <ClInclude Include="Action.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>

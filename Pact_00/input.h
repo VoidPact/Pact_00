@@ -3,6 +3,11 @@
 #include <iostream>
 #include <SDL2\SDL.h>
 #include <vector>
-#include "action.h"
+#include <algorithm>
+#include "Action.h"
 
-vector<vector<SDL_Keycode>> updateInput();
+using namespace std;
+
+void updateInput(vector<SDL_Keycode>* keysPressed);
+
+void processInput(vector<SDL_Keycode>* input, vector<Action> actions);

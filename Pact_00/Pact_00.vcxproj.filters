@@ -44,7 +44,7 @@
     <ClInclude Include="..\glad\glad.h">
       <Filter>glad</Filter>
     </ClInclude>
-    <ClInclude Include="action.h">
+    <ClInclude Include="Action.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

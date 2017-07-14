@@ -1,4 +1,4 @@
-#include "action.h"
+#include "Action.h"
 
 
 Action::Action(void(*effect)())
