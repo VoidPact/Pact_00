@@ -124,13 +124,20 @@
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="render.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\glad\glad.h" />
     <ClInclude Include="Action.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="render.h" />
+    <ClInclude Include="shader\Shader.h" />
     <ClInclude Include="Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader\default.frag" />
+    <None Include="shader\default.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

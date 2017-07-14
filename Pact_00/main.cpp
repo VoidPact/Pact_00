@@ -1,14 +1,19 @@
 #include <iostream> // input output, has all sorts of shit - Emil, also has strings.
+
+#include "Action.h" // Classes.
 #include "Window.h"
-#include "input.h"
-#include "Action.h"
+#include "shader\Shader.h"
+
+#include "input.h" // Memes.
+
+
+
 
 #undef main // For some reason this needs to be done for SDL to work.
 
 const int WINDOW_WIDTH = 1200;
 const int WINDOW_HEIGHT = 900;
 const char* WINDOW_TITLE = "Pact_00";
-
 
 int main()
 {
@@ -51,22 +56,30 @@ int main()
     //index 0: non-modifier keys currently pressed.
     //index 1: modifier keys currently pressed.
 	vector<SDL_Keycode> input[2];
-									
+				
+	//Fokken shaders
+	Shader shaderProgram("shader/default.vs", "shader/default.frag");
 
-	// Game loop
+
+	// Game loop.
 	bool running = true;
 	while (running) 
 	{
 		updateInput(input);
 		processInput(input, actions);
 		
+		
+
+
+
 
 		window.clear();
 	}
 
-	
 	return 0;
 }
+
+
 
 
 
