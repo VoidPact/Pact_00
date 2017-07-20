@@ -55,3 +55,4 @@ void Box::updateVertices()
 	vertices[9] = topLeft[0];
 	vertices[10] = topLeft[1];
 }
+

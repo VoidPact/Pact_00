@@ -6,7 +6,6 @@
 #include "Box.h"
 
 #include "input.h" // Memes.
-#include "render.h"
 
 
 
@@ -49,6 +48,11 @@ int main()
 	Action yellowBalls([]() {glClearColor(0.5, 0.5, 0.0, 0.0); });
 	yellowBalls.addTriggerChord(std::vector<SDL_Keycode>{SDLK_s, SDLK_LSHIFT});
 
+	// Makes a square
+	float topLeft[2] = { -0.2f, 0.2f };
+	float bottomRight[2] = { 0.2f, -0.2f };
+	Box square(topLeft, bottomRight);
+
 	// TESTING END
 
 	vector<Action> actions { blueBalls, redBalls, greenBalls, yellowBalls }; // det her kan man goere i ny C++!
@@ -60,10 +64,6 @@ int main()
 				
 	//Fokken shaders
 	Shader shaderProgram("shader/default.vs", "shader/default.frag");
-
-	float topLeft[2] = { -0.2f, 0.2f };
-	float bottomRight[2] = { 0.2f, -0.2f };
-	Box square(topLeft, bottomRight);
 
 	// Game loop.
 	bool running = true;

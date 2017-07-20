@@ -18,7 +18,7 @@ private:
 	GLfloat topLeft[2];
 	GLfloat bottomRight[2];
 	GLfloat vertices[12];
-	const GLfloat indices[6] = { 0, 1, 3, 1, 2, 3 };
+	const GLuint indices[6] = { 0, 1, 3, 1, 2, 3 };
 
 	GLuint VAO;
 	GLuint VBO;
