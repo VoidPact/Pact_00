@@ -124,6 +124,7 @@
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Box.cpp" />
     <ClCompile Include="render.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
@@ -131,6 +132,7 @@
     <ClInclude Include="..\glad\glad.h" />
     <ClInclude Include="Action.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="Box.h" />
     <ClInclude Include="render.h" />
     <ClInclude Include="shader\Shader.h" />
     <ClInclude Include="Window.h" />

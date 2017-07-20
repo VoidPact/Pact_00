@@ -75,5 +75,9 @@ Window::~Window()
 void Window::clear()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void Window::refresh()
+{
 	SDL_GL_SwapWindow(glWindow);
 }

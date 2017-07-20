@@ -15,6 +15,7 @@ public:
 
 	// Functions. 
 	void clear();
+	void refresh();
 
 private:
 	// Fields.

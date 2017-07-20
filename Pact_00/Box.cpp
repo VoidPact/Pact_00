@@ -1,26 +1,19 @@
-#include "render.h"
+#include "Box.h"
 
-void initRenderData()
+Box::Box(float topLeft[2], float bottomRight[2])
+	: topLeft {topLeft[0], topLeft[1]},
+	  bottomRight {bottomRight[0], bottomRight[1]}
 {
-	// Inspired from OpenGL tutorial.
-	//Configure VAO/VBO
-	GLfloat vertices[] =
-	{
-		0.5f, 0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		-0.5f, -0.5f, 0.0f,
-		-0.5f, 0.5f, 0.0f
-	};
-	unsigned int indices[] =
-	{
-		0, 1, 3, // first triangle.
-		1, 2, 3 // second triangle.
-	};
+	// Initialize vertices
+	updateVertices();
+	vertices[2] = 0.0f;
+	vertices[5] = 0.0f;
+	vertices[8] = 0.0f;
+	vertices[11] = 0.0f;
 
-	unsigned int VBO, VAO, EBO;
 	// Generate vertex array.
 	glGenVertexArrays(1, &VAO);
-	
+
 	// Generate buffers
 	glGenBuffers(1, &VBO); // Holding the coords (vertices).
 	glGenBuffers(1, &EBO); // Holding the sequence to draw elements (indices).
@@ -34,15 +27,31 @@ void initRenderData()
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-	
+
 	// Set and enable the vertex attributes pointers.
 	// Dunno really what this is, but it's got something to do with something.
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
-
 }
 
-void square() 
+void Box::draw()
 {
+	glBindVertexArray(VAO);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+}
+
+void Box::updateVertices()
+{
+	// Top right
+	vertices[0] = bottomRight[0];
+	vertices[1] = topLeft[1];
+	// Bottom right
+	vertices[3] = bottomRight[0];
+	vertices[4] = bottomRight[1];
+	// Bottom left
+	vertices[6] = topLeft[0];
+	vertices[7] = bottomRight[1];
+	// Top left
+	vertices[9] = topLeft[0];
+	vertices[10] = topLeft[1];
 }

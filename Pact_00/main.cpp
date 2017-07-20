@@ -3,6 +3,7 @@
 #include "Action.h" // Classes.
 #include "Window.h"
 #include "shader\Shader.h"
+#include "Box.h"
 
 #include "input.h" // Memes.
 #include "render.h"
@@ -18,18 +19,18 @@ const char* WINDOW_TITLE = "Pact_00";
 int main()
 {
 	Window window(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE);
-	
+
 	// TESTING
 	//Makes screen blue when press w :).
-	Action blueBalls([]() 
+	Action blueBalls([]()
 	{
-		glClearColor(0.0, 0.0, 0.5, 0.0); 
+		glClearColor(0.0, 0.0, 0.5, 0.0);
 		std::cout << "BLUE MAN" << std::endl;
 	});
 	blueBalls.addTriggerChord(std::vector<SDL_Keycode>{SDLK_w});
 
 	//Makes screen red when press a :).
-	Action redBalls([]() 
+	Action redBalls([]()
 	{
 		glClearColor(0.5, 0.0, 0.0, 0.0);
 		std::cout << "RED MAN" << std::endl;
@@ -37,9 +38,9 @@ int main()
 	redBalls.addTriggerChord(std::vector<SDL_Keycode>{SDLK_a});
 
 	//Makes screen green when press d :).
-	Action greenBalls([]() 
+	Action greenBalls([]()
 	{
-		glClearColor(0.0, 0.5, 0.0, 0.0); 
+		glClearColor(0.0, 0.5, 0.0, 0.0);
 		std::cout << "GREEN MAN" << std::endl;
 	});
 	greenBalls.addTriggerChord(std::vector<SDL_Keycode>{SDLK_d});
@@ -60,7 +61,9 @@ int main()
 	//Fokken shaders
 	Shader shaderProgram("shader/default.vs", "shader/default.frag");
 
-	initRenderData();
+	float topLeft[2] = { -0.2f, 0.2f };
+	float bottomRight[2] = { 0.2f, -0.2f };
+	Box square(topLeft, bottomRight);
 
 	// Game loop.
 	bool running = true;
@@ -69,10 +72,12 @@ int main()
 		updateInput(input);
 		processInput(input, actions);
 		
-		shaderProgram.Use();
-		square();
-
 		window.clear();
+
+		shaderProgram.Use();
+		square.draw();
+
+		window.refresh();
 	}
 
 	return 0;
