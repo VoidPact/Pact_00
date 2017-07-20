@@ -5,7 +5,7 @@
 #include "shader\Shader.h"
 
 #include "input.h" // Memes.
-
+#include "render.h"
 
 
 
@@ -60,6 +60,7 @@ int main()
 	//Fokken shaders
 	Shader shaderProgram("shader/default.vs", "shader/default.frag");
 
+	initRenderData();
 
 	// Game loop.
 	bool running = true;
@@ -68,10 +69,8 @@ int main()
 		updateInput(input);
 		processInput(input, actions);
 		
-		
-
-
-
+		shaderProgram.Use();
+		square();
 
 		window.clear();
 	}
